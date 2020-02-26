@@ -1,1 +1,1 @@
-echo test>>log
+echo test>>update_log

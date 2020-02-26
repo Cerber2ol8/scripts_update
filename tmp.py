@@ -59,6 +59,7 @@ def save_pid(pid_file):
         f.write(str(os.getpid()))
 
 def test_task():
+    os.system('sudo bash ./task.sh')
     os.system('echo task test>>task_log')
 
 
@@ -71,7 +72,7 @@ if __name__ == '__main__':
 
     save_pid(PID_FILE)
     schedule.every(10).seconds.do(check_update)
-    schedule.every().day.at("22:53").do(test_task)
+    schedule.every().day.at("23:23").do(test_task)
     while True:
         schedule.run_pending()
 

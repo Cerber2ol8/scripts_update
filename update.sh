@@ -1,1 +1,2 @@
-echo test>update_log
+echo download new script>>update_log
+wget 

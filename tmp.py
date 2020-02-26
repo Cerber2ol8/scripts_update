@@ -72,8 +72,8 @@ if __name__ == '__main__':
             
 
     save_pid(PID_FILE)
-    schedule.every(10).seconds.do(check_update)
-    schedule.every().day.at("00:04").do(test_task)
+    schedule.every(5).minutes.do(check_update)
+    schedule.every().day.at("08:04").do(test_task)
     while True:
         schedule.run_pending()
 

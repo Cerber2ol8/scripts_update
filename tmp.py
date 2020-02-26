@@ -45,7 +45,8 @@ def check_update():
             save_pid(PID_FILE)
 
 def update():
-    os.remove('update.sh')
+    if os.path.exists('update.sh'):
+        os.remove('update.sh')
     time.sleep(1)
     os.system('wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/update.sh')
     os.system('sudo bash ./update.sh')
@@ -72,7 +73,7 @@ if __name__ == '__main__':
 
     save_pid(PID_FILE)
     schedule.every(10).seconds.do(check_update)
-    schedule.every().day.at("23:23").do(test_task)
+    schedule.every().day.at("00:04").do(test_task)
     while True:
         schedule.run_pending()
 

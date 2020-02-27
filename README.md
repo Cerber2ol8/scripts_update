@@ -10,3 +10,5 @@ $sudo bash ./start.sh
 
 结束
 $sudo bash ./stop.sh
+
+task.sh 为任务需要处理的任务

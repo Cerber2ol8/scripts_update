@@ -12,3 +12,8 @@ $sudo bash ./start.sh
 $sudo bash ./stop.sh
 
 task.sh 为任务需要处理的任务
+
+
+由于github链接经常无法访问，无法及时获取更新信息
+以上代码已转移至码云
+[scripts_update](https://gitee.com/Cerber2ol8/scripts_update)

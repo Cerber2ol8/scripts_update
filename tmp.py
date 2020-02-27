@@ -49,11 +49,9 @@ def update():
         os.remove('update.sh')
     time.sleep(1)
     os.system('wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/update.sh')
-    os.system('sudo bash ./update.sh')
-    os.system('cp /tmp/version.txt version.txt')
     os.system("echo "+datetime.now().strftime("%Y-%m-%d %H:%M:%S")+">>log")
     os.system('echo last update update>>log')
-
+    os.system('sudo bash ./update.sh')
 def save_pid(pid_file):
     pid = os.getpid()
     with open(pid_file, 'w+') as f:
@@ -72,6 +70,7 @@ if __name__ == '__main__':
             
 
     save_pid(PID_FILE)
+    check_update()
     schedule.every(5).minutes.do(check_update)
     schedule.every().day.at("08:04").do(test_task)
     while True:

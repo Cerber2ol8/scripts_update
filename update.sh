@@ -1,9 +1,9 @@
 echo download new script>>update_log
-#wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/task.sh
+#wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/task.sh
 
 sudo bash ./stop.sh
 rm -f tmp.py
-wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/tmp.py
+wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/tmp.py
 sudo bash ./start.sh
 
 echo update at>>update_log

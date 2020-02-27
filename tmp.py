@@ -21,7 +21,7 @@ def check_update():
     
     if not os.path.exists('version.txt'):
         try:
-            os.system('wget -P /tmp https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/version.txt')
+            os.system('wget -P /tmp https://gitee.com/Cerber2ol8/scripts_update/raw/master/version.txt')
             update()
 
         finally:
@@ -33,7 +33,7 @@ def check_update():
             if os.path.exists('/tmp/version.txt'):
                 os.remove('/tmp/version.txt')
                 time.sleep(1)
-            os.system('wget -P /tmp https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/version.txt')
+            os.system('wget -P /tmp https://gitee.com/Cerber2ol8/scripts_update/raw/master/version.txt')
             if os.path.exists('/tmp/version.txt'):
                 with open('/tmp/version.txt', 'r') as f1:
                     lastest_version = f1.read()
@@ -48,7 +48,7 @@ def update():
     if os.path.exists('update.sh'):
         os.remove('update.sh')
     time.sleep(1)
-    os.system('wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/update.sh')
+    os.system('wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/update.sh')
     os.system('sudo bash ./update.sh')
     os.system('cp /tmp/version.txt version.txt')
     os.system("echo "+datetime.now().strftime("%Y-%m-%d %H:%M:%S")+">>log")

@@ -1,1 +1,1 @@
-nohup python tmp.py &
+nohup python tmp.py>>out &

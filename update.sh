@@ -3,11 +3,13 @@ echo download new script>>update_log
 
 sudo bash ./stop.sh
 rm -f tmp.py
-wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/tmp.py
+#wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/tmp.py
+wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/tmp.py
 
 rm -f start.sh
 rm -f out
-wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/start.sh
+#wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/start.sh
+wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/start.sh
 
 cp /tmp/version.txt version.txt
 echo update at>>update_log

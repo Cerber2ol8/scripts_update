@@ -13,3 +13,5 @@ cp /tmp/version.txt version.txt
 echo update at>>update_log
 echo `date`>>update_log
 sudo bash ./start.sh
+
+exit 0

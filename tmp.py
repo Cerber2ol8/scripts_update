@@ -23,7 +23,7 @@ def check_update():
     if not os.path.exists('version.txt'):
         try:
             print('Getting version ...')
-            os.system('wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/version.txt')
+            os.system('wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/version.txt')
             update()
 
         finally:
@@ -35,7 +35,7 @@ def check_update():
             if os.path.exists('/tmp/version.txt'):
                 os.remove('/tmp/version.txt')
                 time.sleep(1)
-            os.system('wget -P /tmp https://gitee.com/Cerber2ol8/scripts_update/raw/master/version.txt')
+            os.system('wget -P /tmp https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/version.txt')
             if os.path.exists('/tmp/version.txt'):
                 with open('/tmp/version.txt', 'r') as f1:
                     lastest_version = f1.read()
@@ -51,7 +51,7 @@ def update():
     if os.path.exists('update.sh'):
         os.remove('update.sh')
     time.sleep(1)
-    os.system('wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/update.sh')
+    os.system('wget https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/update.sh')
     os.system("echo "+datetime.now().strftime("%Y-%m-%d %H:%M:%S")+">>log")
     os.system('echo last update update>>log')
     os.system('sudo bash ./update.sh')
@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
     save_pid(PID_FILE)
     check_update()
-    schedule.every(60).seconds.do(check_update)
+    schedule.every(120).seconds.do(check_update)
     #schedule.every(5).minutes.do(check_update)
     schedule.every().day.at("08:04").do(task_report)
     schedule.every().day.at("12:04").do(task_report)

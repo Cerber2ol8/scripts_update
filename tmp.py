@@ -4,6 +4,7 @@ import os
 import sys
 from datetime import datetime
 import logging
+import time
 
 LOG_FILE = '/home/mytools.log'
 PID_FILE = '/tmp/tools.pid'
@@ -57,23 +58,29 @@ def save_pid(pid_file):
     with open(pid_file, 'w+') as f:
         f.write(str(os.getpid()))
 
-def test_task():
+def task_report():
     os.system('sudo bash ./task.sh')
     os.system('echo task test>>task_log')
 
+def task_spider():
+    if os.path.exists('/tmp/spider.pid'):
+        os.system('kill $(cat /tmp/spider.pid)')
+
+    os.system('python spider.py')
 
 if __name__ == '__main__':
     if os.path.exists(PID_FILE):
-        os.system('sudo bash ./stop.sh')
+        os.system('kill $(cat /tmp/tools.pid)')
 
 
             
 
     save_pid(PID_FILE)
     check_update()
-    schedule.every(30).seconds.do(check_update)
+    schedule.every(60).seconds.do(check_update)
     #schedule.every(5).minutes.do(check_update)
-    schedule.every().day.at("08:04").do(test_task)
+    schedule.every().day.at("08:04").do(task_report)
+    schedule.every().day.at("12:04").do(task_report)
     while True:
         schedule.run_pending()
 

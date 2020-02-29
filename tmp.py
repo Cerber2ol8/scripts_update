@@ -19,9 +19,10 @@ LOG = logging.getLogger(__name__)
 
 def check_update():
     
-    
+    print('checking update...')
     if not os.path.exists('version.txt'):
         try:
+            print('Getting version ...')
             os.system('wget https://gitee.com/Cerber2ol8/scripts_update/raw/master/version.txt')
             update()
 
@@ -39,6 +40,7 @@ def check_update():
                 with open('/tmp/version.txt', 'r') as f1:
                     lastest_version = f1.read()
                     if cur_version != lastest_version:
+                        print('New version found,updating...')
                         update()
                     
                     
@@ -70,6 +72,7 @@ def task_spider():
 
 if __name__ == '__main__':
     if os.path.exists(PID_FILE):
+        print('exists another process,killing ...')
         os.system('kill $(cat /tmp/tools.pid)')
 
 

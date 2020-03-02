@@ -36,7 +36,7 @@ def check_update():
             if os.path.exists('/tmp/version.txt'):
                 os.remove('/tmp/version.txt')
                 time.sleep(1)
-            os.system('wget -P --timeout=10 --waitretry=2 --tries=3 /tmp https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/version.txt')
+            os.system('wget -P /tmp --timeout=10 --waitretry=2 --tries=3  https://raw.githubusercontent.com/Cerber2ol8/scripts_update/master/version.txt')
             if os.path.exists('/tmp/version.txt'):
                 with open('/tmp/version.txt', 'r') as f1:
                     lastest_version = f1.read()
